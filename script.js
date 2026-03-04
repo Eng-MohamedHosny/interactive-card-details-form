@@ -168,6 +168,7 @@ form.addEventListener("submit", function (e) {
     cardDefaultValues();
      
     thanksCard.classList.remove("hidden");
+    thanksCard.classList.add("animate__animated","animate__bounceIn");
     form.classList.add("hidden");
     }
 
@@ -177,6 +178,7 @@ form.addEventListener("submit", function (e) {
 
   continueBtn.addEventListener("click",function(){
      thanksCard.classList.add("hidden");
+     thanksCard.classList.remove("animate__animated","animate__bounceIn");
     form.classList.remove("hidden");
   })
 
