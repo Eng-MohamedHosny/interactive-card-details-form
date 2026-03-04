@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <!-- Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">   
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="style.css">
+
+  <title>Frontend Mentor | Interactive card details form</title>
+
+</head>
+<body>
+  <picture>
+  </picture>
+  <main class="container">
+    <div class="wrapper">
+      <div class="card">
+        <div class="card-front ">
+          <img src="images/card-logo.svg" alt="">
+          <h2 id="card-number">0000 0000 0000 0000</h2>
+          <div class="name-expiry">
+            <h3 id="cardholder-name">Card-holder Name</h3>
+            <h3><span id="exp-month">00</span>/<span id="exp-year"">00</span></h3>
+          </div>
+        </div>
+    
+          <div class="card-back">
+          <p id="cvv">000</p>
+          </div>
+      </div>
+  </div>
+     <!-- Thanks card -->
+       <section class="thanks-card hidden">
+        <div class="complete-image">
+          <img src="images/icon-complete.svg" alt="">
+        </div>
+        <h2>Thank you!</h2>
+        <p>We've added your card details</p>
+        <button type="button" class="continue">Continue</button>
+       </section>
+    <form class="" method="post" novalidate>
+      <section class="fields-container">
+        <div class="cardholder-name field-container">
+          <label for="cardholder-name-field">Cardholder Name</label>
+          <input type="text" id="cardholder-name-field" class="cardholder-name-field input-field"  placeholder="e.g. Jane Appleseed"></input>
+          <p class="error-message hidden">Can’t be blank</p>
+        </div>
+        <div class="card-number field-container">
+          <label for="card-number-field">Card Number</label>
+          <input type="text" id="card-number-field" class="card-number-field input-field" placeholder="e.g. 1234 5678 9123 0000"></input>
+          <p class="error-message hidden">Can’t be blank</p>
+        </div>
+        <div class="expire-cvv-input-section">
+          <div class="card-expiry field-container">
+            <label for="">Exp. Date (MM/YY)</label>
+            <div class="side-by-side">
+              <input type="number" class="exp-month-field input-field" placeholder="MM"></input>
+              <input type="number" class="exp-year-field input-field" placeholder="YY"></input>
+            </div>
+            <p class="error-message hidden">Can’t be blank</p>
+          </div>
+          <div class="card-cvv field-container">
+            <label for="cvv-field">CVC</label>
+            <input  minlength="1" maxlength="3" max="999" type="number" id="cvv-field" class="cvv-field input-field  " placeholder="e.g. 123"></input>
+            <p class="error-message hidden">Can’t be blank</p>
+          </div>
+        </div>
+      </section>
+     <button type="submit" class="confirm">Confirm</button>
+    </form>
+</main>
+
+  
+  <script src="script.js"></script>
+  
+</body>
+</html>

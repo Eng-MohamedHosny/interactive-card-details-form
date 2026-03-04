@@ -1,0 +1,405 @@
+/* 1. Use a more-intuitive box-sizing model */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* 2. Remove default margin */
+*:not(dialog) {
+  margin: 0;
+}
+
+/* 3. Enable keyword animations */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    interpolate-size: allow-keywords;
+  }
+}
+
+body {
+  /* 4. Add accessible line-height */
+  line-height: 1.5;
+  /* 5. Improve text rendering */
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 6. Improve media defaults */
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* 7. Inherit fonts for form controls */
+input, button, textarea, select {
+  font: inherit;
+}
+
+/* 8. Avoid text overflows */
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+/* 9. Improve line wrapping */
+p {
+  text-wrap: pretty;
+}
+h1, h2, h3, h4, h5, h6 {
+  text-wrap: balance;
+}
+
+/*
+  10. Create a root stacking context
+*/
+#root, #__next {
+  isolation: isolate;
+}
+
+/* Variable collection */
+:root {
+  /* Mode 1 */
+  /* color */
+  --colors-black: #000000;
+  --colors-white: #ffffff;
+  --colors-blue-400: #47a2ff;
+  --colors-gray-200: #dfdee0;
+  --colors-gray-400: #adb5be;
+  --colors-gray-950: #2f2f2f;
+  --colors-orange-400: #ff834a;
+  --colors-purple-500: #d53aff;
+  --colors-purple-950: #21092f;
+  --colors-red-400: #ff5050;
+  /* number */
+  --spacing-0: 0rem;
+  --spacing-100: 0.8rem;
+  --spacing-200: 1.6rem;
+  --spacing-300: 2.4rem;
+  --spacing-400: 3.2rem;
+  --spacing-500: 4rem;
+  --spacing-600: 4.8rem;
+  --spacing-800: 6.4rem;
+
+  /* === Fonts === */
+    --ff-primary: "Space Grotesk", sans-serif;
+    --fw-medium: 500;
+
+    /* === Text Presets (Font Shorthand: Weight Size/Line-Height Family) === */
+
+    /* Preset 1: 28px */
+    --tp-1-font: var(--fw-medium) 2.8rem / 1.3 var(--ff-primary);
+    --tp-1-ls: 0.35rem;
+
+    /* Preset 2: 18px (Spaced) */
+    --tp-2-font: var(--fw-medium) 1.8rem / 1.3 var(--ff-primary);
+    --tp-2-ls: 0.25rem;
+
+    /* Preset 3: 18px (Default) */
+    --tp-3-font: var(--fw-medium) 1.8rem / 1.3 var(--ff-primary);
+    --tp-3-ls: 0;
+
+    /* Preset 4: 14px */
+    --tp-4-font: var(--fw-medium) 1.4rem / 1.3 var(--ff-primary);
+    --tp-4-ls: 0.2rem;
+
+    /* Preset 5: 12px (Spaced) */
+    --tp-5-font: var(--fw-medium) 1.2rem / 1.25 var(--ff-primary);
+    --tp-5-ls: 0.2rem;
+
+    /* Preset 6: 12px (Default) */
+    --tp-6-font: var(--fw-medium) 1.2rem / 1.25 var(--ff-primary);
+    --tp-6-ls: 0;
+
+    /* Preset 7: 9px */
+    --tp-7-font: var(--fw-medium) 0.9rem / 1.25 var(--ff-primary);
+    --tp-7-ls: 0.125rem;
+}
+html{
+    font-size: 62.5%;
+}
+body{
+    min-height: 100vh;
+    font-family: var(--ff-primary);
+    font-size: 1.8rem;
+}
+main {
+    display: grid;
+    grid-template-rows: 37% 1fr;
+    min-height: 100vh;
+}
+
+ .wrapper{
+    background: url(images/bg-main-mobile.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 24rem;
+ }
+.card {
+    height: 25rem;
+    width: 34.2rem;
+    top: 3.2rem;
+    position: relative;
+    margin-inline:auto;
+}
+.card-back{
+    background: url(images/bg-card-back.png);
+    background-size: cover;
+    min-width: 28.6rem;
+    min-height: 15.7rem;
+    z-index: 1;
+    position: absolute;
+    top:0;
+    right: 0;
+}
+.card-back p{
+    position: absolute;
+    top: 73px;
+    right: 43px;
+    font: var(--tp-7-font);
+    letter-spacing: var(--tp-7-ls);
+    color: var(--colors-white);
+}
+.card-front{
+    background: url(images/bg-card-front.png) ;
+    background-size: cover;
+    width: 28.5rem;
+    height: 15.6rem;
+    z-index: 2;
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    padding: var(--spacing-200);
+    color: white;
+}
+
+.card-front img{
+    margin-bottom: 4rem;
+    width: 5.2rem;
+    height: 3rem;
+}
+.card-front h2{
+    font:var(--tp-2-font);
+    letter-spacing: var(--tp-2-ls);
+    margin-bottom: var(--spacing-200);
+}
+.card-front .name-expiry{
+    display: flex;
+    justify-content: space-between;
+    font:var(--tp-7-font);
+    letter-spacing: var(--tp-7-ls);
+    text-transform: uppercase;
+}
+
+form{
+    width: 100%;
+    /* padding-top: 32px; */
+    padding-inline: var(--spacing-500);
+
+    margin-inline: auto;
+}
+.fields-container{
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-300);
+}
+
+.field-container  label{
+    display: inline-block;
+    margin-bottom: var(--spacing-100) ;
+    font: var(--tp-3-font);
+    letter-spacing: var(--tp-5-ls);
+    cursor: pointer;
+}
+input[type="text"],
+input[type="number"]
+{
+    padding: var(--spacing-100) var(--spacing-200);
+    border-radius: var(--spacing-100);
+    border:1px solid var(--colors-gray-200); 
+    font: var(--tp-3-font);
+    letter-spacing: var(--tp-3-ls);
+    outline: none;
+    width: 100%;
+    height: 5rem;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+input[type="text"]::placeholder,
+input[type="number"]::placeholder{
+    color: #c8c2cb;
+}
+input[type="text"]:focus,
+input[type="number"]:focus{
+    border:1px solid #610595;
+}
+
+
+
+.expire-cvv-input-section{
+   display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: var(--spacing-300);
+}
+.card-expiry .side-by-side{
+    display: flex;
+    gap: var(--spacing-200);
+}
+.card-cvv {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
+}
+
+button {
+    margin-top: calc(var(--spacing-300)*2);
+    border-style: none;
+    font: var(--tp-3-font);
+    letter-spacing:var(--tp-3-ls);
+    background: var(--colors-purple-950);
+    width: 100%;
+    border-radius: 8px;
+    height: 5.3rem;
+    color: white;
+    cursor: pointer;
+}
+/* Error message and state */
+.error-state {
+    border-color: var(--colors-red-400) !important;
+}
+.error-message{
+    color: var(--colors-red-400);
+    margin-top: var(--spacing-100);
+    font: var(--tp-6-font);
+    letter-spacing: var(--tp-6-ls);
+}
+
+.hidden{
+    display: none !important;
+}
+/* Thanks card  */
+.thanks-card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 32.7rem;
+    align-self: center;
+    justify-self: center;
+
+
+}
+.thanks-card .complete-image{
+    margin-bottom: var(--spacing-400);
+}
+.thanks-card h2 {
+    font: var(--tp-1-font);
+    letter-spacing: var(--tp-1-ls);
+    columns: var(--colors-purple-950);
+    margin-bottom: var(--spacing-200);
+}
+.thanks-card p {
+    font: var(--tp-3-font);
+    letter-spacing: var(--tp-3-ls);
+    color: var(--colors-gray-400);
+}
+
+@media (min-width:668px){
+
+    main{
+        grid-template-rows: 43rem 1fr;
+    }
+    .wrapper{
+        height: 34rem;
+    }
+    .field-container label {
+    font: var(--tp-3-font);
+    }
+    .card{
+        width: 54.3rem;
+        height: 38.4rem;
+    }
+    .card-back{
+        width: 44.7rem;
+        height: 24.5rem;
+    }
+    .card-front{
+        width: 44.7rem;
+        height: 24.5rem;
+        padding: 2.8rem 3.2rem;
+    }
+    .card-front img{
+        width: 8.4rem;
+        height: 4.7rem;
+        margin-bottom: 6.4rem;
+       
+    }
+    .card-front h2{
+        font: var(--tp-1-font);
+        letter-spacing:var(--tp-1-ls);
+        margin-bottom: 2.4rem;
+    }
+    .card-front .name-expiry{
+        font: var(--tp-4-font);
+        letter-spacing: var(--tp-4-ls);
+    }
+
+
+    form{
+        /* padding-top: 15px; */
+        max-width: 74rem;
+    }
+
+    .card-back p{
+        font: var(--tp-4-font);
+        letter-spacing: var(--tp-4-ls);
+        top: 111px;
+        right: 50px;
+    }
+    .thanks-card {
+        width: 38.1rem;
+    }
+
+
+}
+
+@media (min-width:1440px)
+{
+    main{
+        display: grid;
+        grid-template-columns: 70rem 1fr;
+        grid-template-rows: auto;
+    }
+   
+    .wrapper{
+        min-height: 100vh;
+        width: 48.3rem;
+        position: relative;
+        background: url(images/bg-main-desktop.png) no-repeat;
+        background-size: cover;
+        display: flex;
+        flex-direction: column; 
+        justify-content: center;
+    }
+    .card {
+        width: 54.1rem;
+        height: 52.2rem;
+        position: relative;
+        left: 164px;
+        top: auto;
+    }
+    .card-front {
+        position: absolute;
+        left: 0;
+        top: 0;
+
+    }
+    .card-back {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        top: auto;
+    }
+    form{
+        max-width: 50rem;
+        padding:0;
+        align-self: center;
+        margin-left: 20%;
+        
+    }
+}
